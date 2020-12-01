@@ -3,7 +3,7 @@
 This is free template code available for flutter coders who wants to develop grocery/shopping app. This projects created with easy to use widgets, so that it can be integrated with any existing code. 
 
 
-<img src="shopping_assets/grocery.png" height="600" alt="Screenshot"/> 
+<img src="shopping_assets/grocery.png" height="400" alt="Screenshot"/> 
 
 Don't forget to star⭐ and contribute if you want. 
 
