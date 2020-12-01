@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/model/product.dart';
 import 'package:grocery_app/model/products.dart';
 import 'package:grocery_app/screens/product_details_screen.dart';
-import 'package:grocery_app/widgets/product_widget.dart';
+import 'package:grocery_app/widgets/explore/product_widget.dart';
 import 'package:provider/provider.dart';
 class ExploreScreen extends StatefulWidget {
   final List<Product> categoryProducts;

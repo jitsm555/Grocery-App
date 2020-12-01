@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/model/categories.dart';
 import 'package:grocery_app/model/category.dart';
-import 'package:grocery_app/widgets/category_widget.dart';
+import 'package:grocery_app/widgets/shop/category_widget.dart';
 import 'package:provider/provider.dart';
 class ShopScreen extends StatefulWidget {
   final Function categoryClick;

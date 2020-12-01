@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/screens/home_dashboad_screen.dart';
 import 'package:grocery_app/util/shopping_colors.dart';
-import 'package:grocery_app/widgets/button_login_animation.dart';
-import 'package:grocery_app/widgets/wave_clipper.dart';
+import 'package:grocery_app/widgets/login/button_login_animation.dart';
+import 'package:grocery_app/widgets/login/wave_clipper.dart';
 
 class LoginUI extends StatefulWidget {
   @override
