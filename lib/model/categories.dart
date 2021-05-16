@@ -37,6 +37,21 @@ class Categories with ChangeNotifier {
       title: 'Cooking Oil',
       imageUrl: 'shopping_assets/images/cooking_oil/cooking_cover.png',
     ),
+    Category(
+        id: 'c6',
+        title: 'Fruits',
+        imageUrl: 'shopping_assets/images/fruits/cover.png',
+        products: ['p1', 'p2', 'p5', 'p6']),
+    Category(
+      id: 'c7',
+      title: 'Snacks',
+      imageUrl: 'shopping_assets/images/bakery_snacks/cover.png',
+    ),
+    Category(
+      id: 'c8',
+      title: 'Eggs',
+      imageUrl: 'shopping_assets/images/dairy_eggs/cover.png',
+    ),
   ];
 
   // var _showFavoritesOnly = false;
@@ -51,7 +66,7 @@ class Categories with ChangeNotifier {
   List<Product> getProductsById(BuildContext context, String id) {
     List<Product> list = [];
     for (String productId
-        in _items.firstWhere((cat) => cat.id == id).products) {
+        in _items.firstWhere((cat) => cat.id == id).products!) {
       list.add(Provider.of<Products>(context).findById(productId));
     }
     return list;

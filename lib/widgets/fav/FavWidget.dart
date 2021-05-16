@@ -6,14 +6,14 @@ import 'package:grocery_app/util/shopping_colors.dart';
 import 'package:provider/provider.dart';
 
 class FavWidget extends StatelessWidget {
-  final Product product;
+  final Product? product;
 
-  const FavWidget({Key key, this.product}) : super(key: key);
+  const FavWidget({Key? key, this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: ValueKey(product.id),
+      key: ValueKey(product!.id),
       background: Container(
         color: shrineGreen400,
         child: Icon(
@@ -48,7 +48,7 @@ class FavWidget extends StatelessWidget {
               FlatButton(
                 child: Text('Yes', style: TextStyle(color: kTextColor)),
                 onPressed: () {
-                  product.toggleFavoriteStatus();
+                  product!.toggleFavoriteStatus();
                   Navigator.of(ctx).pop(true);
                 },
               ),
@@ -57,7 +57,7 @@ class FavWidget extends StatelessWidget {
         );
       },
       onDismissed: (direction) {
-        Provider.of<Cart>(context, listen: false).removeItem(product.id);
+        Provider.of<Cart>(context, listen: false).removeItem(product!.id);
       },
       child: Card(
         margin: EdgeInsets.symmetric(
@@ -67,12 +67,12 @@ class FavWidget extends StatelessWidget {
         child: ListTile(
           leading: CircleAvatar(
             radius: 30.0,
-            backgroundImage: AssetImage(product.imageUrl),
+            backgroundImage: AssetImage(product!.imageUrl),
             backgroundColor: Colors.transparent,
           ),
-          title: Text(product.title),
-          subtitle: Text('Total: \$${(product.price * product.price)}'),
-          trailing: Text('${product.price} x'),
+          title: Text(product!.title),
+          subtitle: Text('Total: \$${(product!.price * product!.price)}'),
+          trailing: Text('${product!.price} x'),
         ),
       ),
     );

@@ -28,7 +28,7 @@ class _CartCounterState extends State<CartCounter> {
           child: Text(
             // if our item is less  then 10 then  it shows 01 02 like that
             numOfItems.toString().padLeft(2, "0"),
-            style: Theme.of(context).textTheme.headline6.copyWith(color: kTextColor),
+            style: Theme.of(context).textTheme.headline6!.copyWith(color: kTextColor),
           ),
         ),
         buildOutlineButton(
@@ -42,7 +42,7 @@ class _CartCounterState extends State<CartCounter> {
     );
   }
 
-  SizedBox buildOutlineButton({IconData icon, Function press}) {
+  SizedBox buildOutlineButton({IconData? icon, Function? press}) {
     return SizedBox(
       width: 40,
       height: 32,
@@ -52,7 +52,7 @@ class _CartCounterState extends State<CartCounter> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(13),
         ),
-        onPressed: press,
+        onPressed: press as void Function()?,
         child: Icon(icon),
       ),
     );

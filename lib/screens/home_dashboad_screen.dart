@@ -6,6 +6,7 @@ import 'package:grocery_app/screens/explore_screen.dart';
 import 'package:grocery_app/screens/fav_screen.dart';
 import 'package:grocery_app/screens/login_screen.dart';
 import 'package:grocery_app/screens/shop_screen.dart';
+import 'package:grocery_app/util/responsive.dart';
 import 'package:grocery_app/util/shopping_colors.dart';
 import 'package:grocery_app/widgets/nav_drawer.dart';
 import 'package:provider/provider.dart';
@@ -27,46 +28,54 @@ class _HomeDashBoardScreenState extends State<HomeDashBoardScreen> {
   }
 
   Widget navigateToScreen() {
-     switch(_currentIndex) {
-       case 0:
-         return ShopScreen(categoryClick: (String categoryId) {
+    switch (_currentIndex) {
+      case 1:
+        return ExploreScreen(
+          categoryProducts: _categoryProducts,
+        );
+      case 2:
+        return CartScreen();
+      case 3:
+        return FavScreen();
+      case 0:
+      default:
+        return ShopScreen(
+          categoryClick: (String categoryId) {
             setState(() {
-              _categoryProducts = Provider.of<Categories>(context).getProductsById(context, categoryId);
+              _categoryProducts = Provider.of<Categories>(context)
+                  .getProductsById(context, categoryId);
               _currentIndex = 1;
             });
-         },);
-       case 1:
-         return ExploreScreen(categoryProducts: _categoryProducts,);
-       case 2:
-         return CartScreen();
-       case 3:
-         return FavScreen();
-     }
+          },
+        );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: NavDrawer(),
+      drawer: !Responsive.isMobile(context) ? SizedBox() : NavDrawer(),
       appBar: AppBar(
         centerTitle: true,
         // elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            _scaffoldKey.currentState.openDrawer();
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ClipOval(
-              child: Image.asset(
-                'shopping_assets/images/user.png',
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
+        leading: !Responsive.isMobile(context)
+            ? SizedBox()
+            : GestureDetector(
+                onTap: () {
+                  _scaffoldKey.currentState!.openDrawer();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'shopping_assets/images/user.png',
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
         actions: [
           GestureDetector(
             onTap: () {
@@ -114,19 +123,19 @@ class _HomeDashBoardScreenState extends State<HomeDashBoardScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            label: 'Shop',
+            title: Text('Shop'),
             icon: Icon(Icons.shopping_bag),
           ),
           BottomNavigationBarItem(
-            label: 'Explore',
+            title: Text('Explore'),
             icon: Icon(Icons.search),
           ),
           BottomNavigationBarItem(
-            label: 'Cart',
+            title: Text('Cart'),
             icon: Icon(Icons.shopping_cart),
           ),
           BottomNavigationBarItem(
-            label: 'Favourite',
+            title: Text('Favourite'),
             icon: Icon(Icons.favorite),
           ),
         ],

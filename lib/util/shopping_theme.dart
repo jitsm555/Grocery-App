@@ -24,12 +24,12 @@ ThemeData buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return base
       .copyWith(
-        caption: base.caption.copyWith(
+        caption: base.caption!.copyWith(
           fontWeight: FontWeight.w400,
           fontSize: 14,
           letterSpacing: defaultLetterSpacing,
         ),
-        button: base.button.copyWith(
+        button: base.button!.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: defaultLetterSpacing,

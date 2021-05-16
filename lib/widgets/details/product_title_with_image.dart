@@ -4,8 +4,8 @@ import 'package:grocery_app/screens/product_details_screen.dart';
 
 class ProductTitleWithImage extends StatelessWidget {
   const ProductTitleWithImage({
-    Key key,
-    @required this.product,
+    Key? key,
+    required this.product,
   }) : super(key: key);
 
   final Product product;
@@ -26,7 +26,7 @@ class ProductTitleWithImage extends StatelessWidget {
             product.title,
             style: Theme.of(context)
                 .textTheme
-                .headline4
+                .headline4!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: kDefaultPadding),
@@ -38,7 +38,7 @@ class ProductTitleWithImage extends StatelessWidget {
                     TextSpan(text: "Price\n"),
                     TextSpan(
                       text: "\$${product.price}",
-                      style: Theme.of(context).textTheme.headline4.copyWith(
+                      style: Theme.of(context).textTheme.headline4!.copyWith(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ],

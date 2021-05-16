@@ -4,18 +4,18 @@ import 'package:grocery_app/screens/product_details_screen.dart';
 
 class Description extends StatelessWidget {
   const Description({
-    Key key,
-    @required this.product,
+    Key? key,
+    required this.product,
   }) : super(key: key);
 
-  final Product product;
+  final Product? product;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: Text(
-        product.description,
+        product!.description,
         style: TextStyle(height: 1.5, color: kTextColor),
       ),
     );

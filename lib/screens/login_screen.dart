@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:grocery_app/screens/home_dashboad_screen.dart';
+import 'package:grocery_app/util/responsive.dart';
 import 'package:grocery_app/util/shopping_colors.dart';
 import 'package:grocery_app/widgets/login/button_login_animation.dart';
 import 'package:grocery_app/widgets/login/wave_clipper.dart';
+import 'package:http/http.dart' as http;
 
 class LoginUI extends StatefulWidget {
   @override
@@ -11,14 +15,38 @@ class LoginUI extends StatefulWidget {
 
 class _LoginUIState extends State<LoginUI> {
   TextEditingController email = TextEditingController();
-  TextEditingController a = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+
+  Widget _loginPanel(double w, double h) {
+    return ListView(
+      //  crossAxisAlignment: CrossAxisAlignment.start,
+      //  mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        _box(email, "Email", TextInputType.text),
+        _box(password, "Password", TextInputType.text),
+        Container(
+            margin: EdgeInsets.only(
+                top: h / 20, left: 25, right: 25, bottom: 25),
+            child: ButtonLoginAnimation(
+              label: "Login",
+              fontColor: Colors.white,
+              background: shrineGreen400,
+              borderColor: shrineGreen400,
+              child: HomeDashBoardScreen(),
+            )),
+        _facebookButton('f', shrineGreen400, 'Log in with Facebook',
+            shrineGreen300),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
-      resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: true,
       body: Stack(
         children: <Widget>[
           Container(
@@ -34,7 +62,7 @@ class _LoginUIState extends State<LoginUI> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: w / 5, left: w / 18),
+            margin: EdgeInsets.only(top: h / 7, left: w / 18),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -48,28 +76,23 @@ class _LoginUIState extends State<LoginUI> {
               ],
             ),
           ),
-          Container(
+          Responsive(
+            mobile: Container(
               margin: EdgeInsets.only(top: h / 2.5),
               alignment: Alignment.center,
-              child: ListView(
-                //  crossAxisAlignment: CrossAxisAlignment.start,
-                //  mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _box(email, "Email", TextInputType.text),
-                  _box(a, "Password", TextInputType.text),
-                  Container(
-                      margin: EdgeInsets.only(top: h / 20, left: 25, right: 25, bottom: 25),
-                      child: ButtonLoginAnimation(
-                        label: "Login",
-                        fontColor: Colors.white,
-                        background: shrineGreen400,
-                        borderColor: shrineGreen400,
-                        child: HomeDashBoardScreen(),
-                      )),
-                  _facebookButton('f', shrineGreen400,
-                      'Log in with Facebook', shrineGreen300),
-                ],
-              )),
+              child: _loginPanel(w, h),
+            ),
+            tablet: Container(
+              margin: EdgeInsets.only(top: h / 2.5, left: w/4, right: w/4),
+              alignment: Alignment.center,
+              child: _loginPanel(w, h),
+            ),
+            desktop: Container(
+              margin: EdgeInsets.only(top: h / 2.5, left: w/4, right: w/4),
+              alignment: Alignment.center,
+              child: _loginPanel(w, h),
+            ),
+          ),
         ],
       ),
     );
@@ -114,7 +137,8 @@ Widget _facebookButton(
             decoration: BoxDecoration(
               color: logoBgColor,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15), topLeft: Radius.circular(15)),
+                  bottomLeft: Radius.circular(15),
+                  topLeft: Radius.circular(15)),
             ),
             alignment: Alignment.center,
             child: Text(logoText,

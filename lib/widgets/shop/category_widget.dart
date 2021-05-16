@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/model/category.dart';
 class CategoryWidget extends StatelessWidget {
-  final Category category;
-  final Function onTap;
+  final Category? category;
+  final Function? onTap;
 
-  const CategoryWidget({Key key, this.category, this.onTap}) : super(key: key);
+  const CategoryWidget({Key? key, this.category, this.onTap}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap(category.id);
+        onTap!(category!.id);
       },
       child: Stack(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Image.asset(
-              category.imageUrl,
-              height: 220,
-              width: 220,
+              category!.imageUrl,
               fit: BoxFit.cover,
+              height: double.infinity,
+              width: double.infinity,
             ),
           ),
           Positioned(
@@ -39,7 +39,7 @@ class CategoryWidget extends StatelessWidget {
                   )
                 ],
               ),
-              child: Text(category.title,
+              child: Text(category!.title,
                   style: TextStyle(
                       fontFamily: 'Gilroy',
                       fontSize: 20,

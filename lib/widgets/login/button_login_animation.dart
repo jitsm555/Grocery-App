@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 class ButtonLoginAnimation extends StatefulWidget {
-  final String label;
-  final Color background;
-  final Color borderColor;
-  final Color fontColor;
-  final Function onTap;
-  final Widget child;
+  final String? label;
+  final Color? background;
+  final Color? borderColor;
+  final Color? fontColor;
+  final Function? onTap;
+  final Widget? child;
 
   const ButtonLoginAnimation(
-      {Key key,
+      {Key? key,
       this.label,
       this.background,
       this.borderColor,
@@ -25,11 +25,11 @@ class ButtonLoginAnimation extends StatefulWidget {
 
 class _ButtonLoginAnimationState extends State<ButtonLoginAnimation>
     with TickerProviderStateMixin {
-  AnimationController _positionController;
-  Animation<double> _positionAnimation;
+  late AnimationController _positionController;
+  late Animation<double> _positionAnimation;
 
-  AnimationController _scaleController;
-  Animation<double> _scaleAnimation;
+  late AnimationController _scaleController;
+  late Animation<double> _scaleAnimation;
 
   bool _isLogin = false;
   bool _isIconHide = false;
@@ -62,7 +62,7 @@ class _ButtonLoginAnimationState extends State<ButtonLoginAnimation>
               Navigator.pushReplacement(
                   context,
                   PageTransition(
-                      type: PageTransitionType.fade, child: widget.child));
+                      type: PageTransitionType.fade, child: widget.child!));
             }
           });
   }
@@ -88,7 +88,7 @@ class _ButtonLoginAnimationState extends State<ButtonLoginAnimation>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(widget.label,
+                  Text(widget.label!,
                       style: TextStyle(
                           color: widget.fontColor,
                           fontSize: 20,

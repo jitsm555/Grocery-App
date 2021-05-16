@@ -6,7 +6,7 @@ import 'cart_counter.dart';
 
 class CounterWithFavBtn extends StatelessWidget {
   const CounterWithFavBtn({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

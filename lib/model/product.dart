@@ -9,11 +9,11 @@ class Product with ChangeNotifier {
   bool isFavorite;
 
   Product({
-    @required this.id,
-    @required this.title,
-    @required this.price,
-    @required this.imageUrl,
-    @required this.description,
+    required this.id,
+    required this.title,
+    required this.price,
+    required this.imageUrl,
+    required this.description,
     this.isFavorite = false,
   });
 

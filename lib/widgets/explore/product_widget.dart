@@ -58,8 +58,8 @@ class ProductWidget extends StatelessWidget {
               topLeft: Radius.circular(16), topRight: Radius.circular(16)),
           child: Image.asset(
             product.imageUrl,
-            height: 220,
-            width: 200,
+            height: double.infinity,
+            width: double.infinity,
             fit: BoxFit.cover,
           ),
         ),
@@ -68,7 +68,7 @@ class ProductWidget extends StatelessWidget {
           child: Container(
               width: MediaQuery.of(context).size.width,
               child: Container(
-                padding: EdgeInsets.only(left: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 foregroundDecoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.1),
                 ),
@@ -106,11 +106,10 @@ class ProductWidget extends StatelessWidget {
               elevation: 10,
               color: shrineGreen400,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                    18.0), // half of height and width of Image
+                borderRadius: BorderRadius.circular(18.0), // half of height and width of Image
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Icon(
                   Icons.add,
                   size: 30,
