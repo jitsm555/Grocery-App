@@ -1,7 +1,12 @@
-# Grocery Shopping App
+# Grocery Shopping App(Mobile, Web, Desktop Supported)
 
 This is free template code available for flutter coders who wants to develop grocery/shopping app. This projects created with easy to use widgets, so that it can be integrated with any existing code. 
 
+# Web Gif
+
+<img src="shopping_assets/grocery_responsive.gif" height="400" alt="Screenshot"/> 
+
+# Mobile Screenshot
 
 <img src="shopping_assets/grocery.png" height="400" alt="Screenshot"/> 
 
