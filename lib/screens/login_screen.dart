@@ -6,7 +6,6 @@ import 'package:grocery_app/util/responsive.dart';
 import 'package:grocery_app/util/shopping_colors.dart';
 import 'package:grocery_app/widgets/login/button_login_animation.dart';
 import 'package:grocery_app/widgets/login/wave_clipper.dart';
-import 'package:http/http.dart' as http;
 
 class LoginUI extends StatefulWidget {
   @override
