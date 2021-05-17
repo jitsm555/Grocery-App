@@ -4,7 +4,7 @@ This is free template code available for flutter coders who wants to develop gro
 
 # Web Gif
 
-<img src="shopping_assets/grocery_responsive.gif" height="400" alt="Screenshot"/> 
+<img src="shopping_assets/grocery.gif" height="400" alt="Screenshot"/> 
 
 # Mobile Screenshot
 
